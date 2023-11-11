@@ -39,10 +39,13 @@ app.post('/login', async (req, res) => {
         //logged in
         jwt.sign({username, id:userDoc._id}, secret, {}, (err, token) => {
             if(err) throw err;
-            res.cookie('token', token).json('OK');
+            res.cookie('token', token).json({
+                id: userDoc._id,
+                username,
+            });
         })
     } else {
-        res.status(400).json('Wrong Shit Bro');
+        res.status(400).json('Wrong Credentials Entered');
     }
 });
 
@@ -59,5 +62,5 @@ app.post('/logout', (req, res) => {
 })
 
 var listener = app.listen(4000, () => {
-    console.log('\nServer running on PORT: ' + listener.address().port );
+    console.log('Server running on PORT: ' + listener.address().port );
 });
