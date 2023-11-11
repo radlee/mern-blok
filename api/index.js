@@ -5,9 +5,11 @@ const mongoose = require('mongoose');
 const User = require('./models/User');
 const bcrypt = require('bcryptjs');
 const app = express();
+const jwt = require('jsonwebtoken');
 
 
 const salt = bcrypt.genSaltSync(10);
+const secret =  'ujk857y383ifnkmlertert6357';
 
 app.use(cors());
 app.use(express.json());
@@ -28,6 +30,13 @@ app.post('/register', async (req, res) => {
     }
 });
 
+app.post('/login', async (req, res) => {
+    const {username, password} = req.body;
+    const user = await User.findOne({username})
+    const passOk = bcrypt.compareSync(password, user.password)
+    res.json(passOk)
+})
+
 var listener = app.listen(4000, function(){
-    console.log('\n-------------------RUNNING SERVER-------------------\nListening on port ' + listener.address().port + '\n-------------------RUNNING SERVER-------------------\n' );
+    console.log('\nListening on port ' + listener.address().port );
 });
