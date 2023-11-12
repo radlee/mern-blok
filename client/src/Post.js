@@ -1,20 +1,19 @@
-import postImg from './kinetic-kudu-ubuntu-download-406x232.jpg'
+import postImg from './kinetic-kudu-ubuntu-download-406x232.jpg';
+import {format} from 'date-fns';
  
-export default function Post() {
+export default function Post({title, summary, cover, content, createdAt, author}) {
     return(
         <div className="post">
             <div className="image">
             <img src={postImg} alt="" ></img>
             </div>
             <div className="texts">
-            <h2>[ House ]: Rent to Own Property</h2>
+            <h2>{title}</h2>
             <p className="info">
-                <a href='/' className="author">Lolito Mafanga</a>
-                <time>2023-11-10 15:52</time>
+                <a href='/' className="author">{author.username} -</a>
+                <time>{format(new Date(createdAt), 'MMM d, yyy HH:mm:ss ')}</time>
             </p>
-            <p>Available place to rent tuntil you own it. Call us
-            on the number below to help you get started.
-            </p>
+            <p className='summary'>{summary}</p>
             </div>
       </div>
     )
