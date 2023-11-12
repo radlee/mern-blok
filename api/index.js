@@ -18,6 +18,7 @@ const secret =  'ujk857y383ifnkmlertert6357';
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.use(express.json());
 app.use(cookieParser());
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 mongoose.connect('mongodb+srv://radlee:Leander247365@mern-blog.psjtrcb.mongodb.net/?retryWrites=true&w=majority');
 
@@ -92,7 +93,12 @@ app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
 });
 
 app.get('/post', async(req, res) => {
-    res.json(await Post.find().populate('author',['username']));
+    res.json(
+        await Post.find()
+            .populate('author',['username'])
+                  .sort({createdAt: -1 })
+                  .limit(20)
+    );
 })
 
 var listener = app.listen(4000, () => {
