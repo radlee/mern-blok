@@ -11,7 +11,7 @@ const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' });
 const fs = require('fs');
-
+app.use(express.static(path.join(__dirname, "build")));
 const salt = bcrypt.genSaltSync(10);
 const secret =  'ujk857y383ifnkmlertert6357';
 
