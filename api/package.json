@@ -2,8 +2,8 @@
   "name": "api",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "build": "npm i"
+    "start": "node index.js",
+    "dev": "node index.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
