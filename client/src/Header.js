@@ -29,7 +29,7 @@ export default function Header () {
           <nav>
             {username && (
               <>
-               <Link to="/create">Create New Post</Link>
+               <Link to="/create">Add Post</Link>
                <button onClick={logout}>Logout</button>
               </>
             )}

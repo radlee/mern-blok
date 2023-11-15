@@ -16,7 +16,21 @@ app.use(express.static(path.join(__dirname, "build")));
 const salt = bcrypt.genSaltSync(10);
 const secret =  'ujk857y383ifnkmlertert6357';
 
+app.use(cors());
 app.use(cors({credentials: true, origin: 'https://radblok2023.onrender.com'}));
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://radblok2023.onrender.com");
+    res.header(
+        "Acceess-Control-Allow-Methods",
+        "GET, HEAD, OPTIONS, POST, PUT, DELETE"
+    );
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-REquested-With, Content-Type, Accept, Authorization"
+    );
+    next();
+});
+
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));

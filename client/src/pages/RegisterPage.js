@@ -9,13 +9,13 @@ export default function RegisterPage() {
         const response = await fetch('https://radblok-back-end.onrender.com/register', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
-            headers: { 'Content-type': 'application/json' },
+            headers: { 'Content-Type': 'application/json' },
         });
 
         if(response.status === 200) {
-            alert('Regy throught');
+            alert('Registered Successfully!');
         } else {
-            alert('reg failed')
+            alert('Registration Failed, Please Try again.')
         }
     }
     return (
