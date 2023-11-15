@@ -1,4 +1,3 @@
-// index.js
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -12,30 +11,24 @@ const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' });
 const fs = require('fs');
 const path = require('path');
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, 'build')));
 const salt = bcrypt.genSaltSync(10);
-const secret =  'ujk857y383ifnkmlertert6357';
+const secret = 'ujk857y383ifnkmlertert6357';
 
-app.use(cors());
-app.use(cors({credentials: true, origin: 'https://radblok2023.onrender.com'}));
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://radblok2023.onrender.com");
-    res.header(
-        "Acceess-Control-Allow-Methods",
-        "GET, HEAD, OPTIONS, POST, PUT, DELETE"
-    );
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-REquested-With, Content-Type, Accept, Authorization"
-    );
-    next();
-});
+app.use(
+  cors({
+    credentials: true,
+    origin: ['https://radblok2023.onrender.com', 'http://localhost:3000'],
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
-mongoose.connect('mongodb+srv://radlee:Leander247365@mern-blog.psjtrcb.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect(
+  'mongodb+srv://radlee:Leander247365@mern-blog.psjtrcb.mongodb.net/?retryWrites=true&w=majority'
+);
 
 app.post('/register', async (req, res) => {
     const { username, password } = req.body;
