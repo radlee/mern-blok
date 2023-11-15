@@ -25,12 +25,11 @@ header {
   margin-top: 20px;
   margin-bottom: 50px;
   align-items: center;
-  color: black !important;
 }
 
 header a {
   text-decoration: none;
-  color: 'inherit';
+  color: black;
 }
 
 header a.logo {
