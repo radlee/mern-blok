@@ -25,6 +25,7 @@ header {
   margin-top: 20px;
   margin-bottom: 50px;
   align-items: center;
+  color: black !important;
 }
 
 header a {
