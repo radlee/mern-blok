@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "build")));
 const salt = bcrypt.genSaltSync(10);
 const secret =  'ujk857y383ifnkmlertert6357';
 
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({credentials: true, origin: 'https://radblok2023.onrender.com'}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
