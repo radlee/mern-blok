@@ -16,11 +16,17 @@ const salt = bcrypt.genSaltSync(10);
 const secret = 'ujk857y383ifnkmlertert6357';
 
 app.use(
-  cors({
-    credentials: true,
-    origin: ['https://radblok2023.onrender.com', 'http://localhost:3000'],
-  })
-);
+    cors({
+      credentials: true,
+      origin: ['https://radblok2023.onrender.com', 'http://localhost:3000'],
+      methods: ['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'DELETE'],
+      allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
+      exposedHeaders: ['Access-Control-Allow-Origin'],
+    })
+  );
+  
+
+
 
 app.use(express.json());
 app.use(cookieParser());
