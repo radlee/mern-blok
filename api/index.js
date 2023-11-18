@@ -19,7 +19,7 @@ const secret = 'ujk857y383ifnkmlertert6357';
 app.use(
     cors({
       credentials: true,
-      origin: ['https://radblok2023.onrender.com', 'http://localhost:3000'],
+      origin: 'http://localhost:3001',
       methods: ['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'DELETE'],
       allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
       exposedHeaders: ['Access-Control-Allow-Origin'],

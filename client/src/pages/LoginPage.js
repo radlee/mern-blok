@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { Navigate } from 'react-router-dom';
 import { UserContext } from "../UserContext";
-
+import { BASE_URL } from "../helper";
 export default function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -10,7 +10,7 @@ export default function LoginPage() {
 
     async function login(ev) {
         ev.preventDefault();
-        const response = await fetch('https://radblok-back-end.onrender.com/login', {
+        const response = await fetch(`${BASE_URL}/login`, {
             method: 'POST',
             body: JSON.stringify({username, password}),
             headers: {'Content-Type' : 'application/json'},

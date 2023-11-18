@@ -2,13 +2,13 @@ import { formatISO9075 } from "date-fns";
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../UserContext";
 import { Link, useParams } from "react-router-dom";
-
+import { BASE_URL } from "../helper";
 export default function PostPage() {
     const { userInfo } = useContext(UserContext);
     const [postInfo, setPostInfo] = useState(null);
     const {id} = useParams();
     useEffect(() => {
-        fetch(`https://radblok-back-end.onrender.com/post/${id}`)
+        fetch(`${BASE_URL}/post/${id}`)
         .then(response => {
             response.json().then(postInfo => {
                 setPostInfo(postInfo);
@@ -35,7 +35,7 @@ export default function PostPage() {
         </div>
         )}
         <div className="image">
-            <img src={`https://radback.onrender.com/${postInfo.cover}`} alt="cover-photo" />
+            <img src={`${BASE_URL}/${postInfo.cover}`} alt="cover-photo" />
     </div>
     <div className="content" dangerouslySetInnerHTML={{__html: postInfo.content}} />
     </div>

@@ -1,11 +1,11 @@
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
-
+import { BASE_URL } from "./helper";
 export default function Header () {
   const {setUserInfo, userInfo} = useContext(UserContext);
   useEffect(() => {
-    fetch('https://radblok-back-end.onrender.com/profile', {
+    fetch(`${BASE_URL}/profile`, {
       credentials: 'include',
     }).then(response => {
       response.json().then(userInfo => {
@@ -15,7 +15,7 @@ export default function Header () {
   }, []);
 
   function logout() {
-    fetch('https://radblok-back-end.onrender.com/logout', {
+    fetch(`${BASE_URL}/logout`, {
       credentials: 'include',
       method: 'POST'
     });

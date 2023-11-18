@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import 'react-quill/dist/quill.snow.css';
 import Editor from '../Editor';
+import { BASE_URL } from '../helper';
 
 export default function CreatePost() {
     const [title, setTitle] = useState('');
@@ -9,7 +10,6 @@ export default function CreatePost() {
     const [content, setContent] = useState('');
     const [files, setFiles] = useState('');
     const [redirect, setDirect] = useState(false);
-
   async function createNewPost(ev) {
     const data = new FormData();
     data.set('title', title);
@@ -19,7 +19,7 @@ export default function CreatePost() {
     ev.preventDefault();
     console.log(files);
     console.log(content);
-    const response = await fetch('https://radblok-back-end.onrender.com/post', {
+    const response = await fetch(`${BASE_URL}/post`, {
         method: 'POST',
         body: data,
         credentials: 'include'

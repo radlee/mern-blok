@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import {format} from 'date-fns';
+import { BASE_URL } from './helper';
  
 export default function Post({_id, title, summary, cover, content, createdAt, author}) {
     return(
         <div className="post">
             <div className="image">
                 <Link to={`/post/${_id}`}>
-                    <img src={'https://radblok-back-end.onrender.com/'+cover} alt="" ></img>
+                    <img src={`${BASE_URL}/`+cover} alt="" ></img>
                 </Link>
             </div>
             <div className="texts">

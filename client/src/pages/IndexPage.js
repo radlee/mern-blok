@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import Post from '../Post';
+import { BASE_URL } from '../helper';
 
 export default function IndexPage() {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
-        fetch('https://radblok-back-end.onrender.com/post').then(response => {
+        fetch(`${BASE_URL}/post`).then(response => {
             response.json().then(posts => {
                 setPosts(posts);
             });

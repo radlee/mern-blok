@@ -41,5 +41,5 @@
   "devDependencies": {
     "concurrently": "^8.2.2"
   },
-  "proxy": "https://radblok-back-end.onrender.com"
+  "proxy": "http://localhost:4000"
 }
