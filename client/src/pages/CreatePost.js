@@ -20,6 +20,7 @@ export default function CreatePost() {
     console.log(files);
     console.log(content);
     const response = await fetch(`${BASE_URL}/post`, {
+        mode: 'no-cors',
         method: 'POST',
         body: data,
         credentials: 'include'

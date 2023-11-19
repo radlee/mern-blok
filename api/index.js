@@ -19,7 +19,7 @@ const secret = 'ujk857y383ifnkmlertert6357';
 app.use(
     cors({
       credentials: true,
-      origin: 'http://localhost:3001',
+      origin: 'http://localhost:3000',
       methods: ['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'DELETE'],
       allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
       exposedHeaders: ['Access-Control-Allow-Origin'],

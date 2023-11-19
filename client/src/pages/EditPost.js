@@ -34,6 +34,7 @@ export default function EditPost() {
       data.set('file', files?.[0]);
     }
     const response = await fetch(`${BASE_URL}/update`, {
+      mode: 'no-cors',
       method: 'PUT',
       body: data,
       credentials: 'include'
